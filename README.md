@@ -1,0 +1,2 @@
+# leetcode
+Upload leetcode solutions
