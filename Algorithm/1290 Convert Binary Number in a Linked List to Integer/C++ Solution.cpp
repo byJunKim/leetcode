@@ -11,26 +11,34 @@ public:
     int getDecimalValue(ListNode* head) {
         
         if(head == NULL) return 0;
-        
-        int ans = 0;
-        int len = 0;
-        ListNode* temp = head;
-        
-        while(temp != NULL){
-            len++;
-            temp = temp->next;
-        } 
-        
-        temp = head;
-        while(temp != NULL){
-            if(temp->val == 1){
-                ans += pow(2, len-1);
-                len--;
-            }else if(temp->val == 0){
-                len--;
+        int count = 0;
+        vector<int> reversedIdx;
+        cout << head->val << endl;
+        ListNode* ptr = head;
+        while(ptr != NULL){
+            if(ptr->val == 1){
+                reversedIdx.push_back(count);
             }
-            temp = temp->next;
+            count++;
+            ptr = ptr->next;
         }
+        
+        count = count - 1;
+        for(int i=0; i < reversedIdx.size(); i++){
+            ans += pow(2,count - reversedIdx[i]);
+        }
+        
         return ans;
     }
 };
+
+
+
+vector<int> top_predators;
+    for(int i=0; i < predators.size(); i++){
+        if(predators[i] == -1) top_predators.push_back(i);
+    }
+    
+    for(int i=0; i < predators.size(); i++){
+        
+    }
